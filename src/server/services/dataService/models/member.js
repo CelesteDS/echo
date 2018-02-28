@@ -31,6 +31,7 @@ export default function memberModel(thinky) {
     associate: (Member, models) => {
       Member.belongsTo(models.Chapter, 'chapter', 'chapterId', 'id', {init: false})
       Member.belongsTo(models.Phase, 'phase', 'phaseId', 'id', {init: false})
+      Member.hasAndBelongsToMany(models.Group, 'group', 'id', 'id', {init: false})
     },
   }
 }
