@@ -1,5 +1,5 @@
-export default function groupModel (thinky) {
-  const {r, type: {string}} = thinky
+export default function groupModel(thinky) {
+  const {type: {string}} = thinky
 
   return {
     Name: 'Group',
@@ -17,7 +17,7 @@ export default function groupModel (thinky) {
         .allowNull(false),
     },
     associate: (Group, models) => {
-      Group.hasAndBelongsToMany(models.Member, 'members', 'id', 'id', { init: false })
+      Group.hasAndBelongsToMany(models.Member, 'members', 'id', 'id', {init: false})
     }
   }
 }
