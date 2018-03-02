@@ -12,7 +12,7 @@ describe(testContext(__filename), function () {
   it('returns the correct feedback type', async function () {
     const feedbackTypeDescriptor = 'myDescriptor'
     const feedbackType = await factory.create('feedbackType', {descriptor: feedbackTypeDescriptor})
-    const feedbackTypeByDescriptor = await getFeedbackTypeByDescriptor('myDescriptor')
+    const feedbackTypeByDescriptor = await getFeedbackTypeByDescriptor(feedbackTypeDescriptor)
     expect(feedbackTypeByDescriptor.id).to.eq(feedbackType.id)
     expect(feedbackTypeByDescriptor.descriptor).to.eq(feedbackTypeDescriptor)
   })

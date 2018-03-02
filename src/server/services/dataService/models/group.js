@@ -2,7 +2,7 @@ export default function groupModel(thinky) {
   const {type: {string}} = thinky
 
   return {
-    Name: 'Group',
+    name: 'Group',
     table: 'groups',
     schema: {
       id: string()

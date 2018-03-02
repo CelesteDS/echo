@@ -13,6 +13,7 @@ import responseFactoryDefine from './response'
 import phaseFactoryDefine from './phase'
 import feedbackTypeFactoryDefine from './feedbackType'
 import RethinkDBAdapter from './RethinkDBAdapter'
+import groupFactoryDefine from './group'
 
 const factory = factoryGirl.promisify(bluebird)
 factory.setAdapter(new RethinkDBAdapter())
@@ -28,5 +29,6 @@ questionFactoryDefine(factory)
 responseFactoryDefine(factory)
 phaseFactoryDefine(factory)
 feedbackTypeFactoryDefine(factory)
+groupFactoryDefine(factory)
 
 export default factory

@@ -10,7 +10,6 @@ const errors = t.Errors
 
 // load model configurations
 const modelDefinitions = autoloadFunctions(__dirname)
-
 // initiate models
 const models = {r, errors}
 const modelDefs = {}
@@ -18,7 +17,6 @@ Object.values(modelDefinitions).forEach(getModel => {
   const modelDefinition = getModel(t) || {}
   const {name, table, schema, pk} = modelDefinition
   modelDefs[name] = modelDefinition
-
   const model = t.createModel(table, schema, {
     pk: pk || 'id',
     table: config.server.rethinkdb.tableCreation,
