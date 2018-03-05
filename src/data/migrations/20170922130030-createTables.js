@@ -7,7 +7,6 @@ export async function up(r, conn) {
     _createChaptersTable(r, conn),
     _createCyclesTable(r, conn),
     _createPhasesTable(r, conn),
-    _createGroupsTable(r, conn),
     _createMembersTable(r, conn),
     _createProjectsTable(r, conn),
     _createSurveyBlueprintsTable(r, conn),
@@ -23,7 +22,6 @@ export async function down(r, conn) {
     r.tableDrop('chapters').run(conn),
     r.tableDrop('cycles').run(conn),
     r.tableDrop('phases').run(conn),
-    r.tableDrop('groups').run(conn),
     r.tableDrop('members').run(conn),
     r.tableDrop('projects').run(conn),
     r.tableDrop('surveyBlueprints').run(conn),
@@ -55,13 +53,6 @@ function _createPhasesTable(r, conn) {
   return r.tableCreate('phases', createOptions).run(conn)
     .then(() => Promise.all([
       r.table('phases').indexCreate('number').run(conn),
-    ]))
-}
-
-function _createGroupsTable(r, conn) {
-  return r.tableCreate('groups', createOptions).run(conn)
-    .then(() => Promise.all([
-      r.table('groups').indexCreate('leaderId').run(conn)
     ]))
 }
 

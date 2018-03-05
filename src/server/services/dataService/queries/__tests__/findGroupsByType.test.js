@@ -4,15 +4,15 @@
 import factory from 'src/test/factories'
 import {resetDB} from 'src/test/helpers'
 
-import getGroupsByType from '../getGroupsByType'
+import findGroupsByType from '../findGroupsByType'
 
-describe.only(testContext(__filename), function () {
+describe(testContext(__filename), function () {
   beforeEach(resetDB)
 
   it('returns the correct group type', async function () {
     const groupType = 'housquad'
     await factory.create('group', {type: groupType})
-    const groupsByType = await getGroupsByType(groupType)
+    const groupsByType = await findGroupsByType(groupType)
     expect(groupsByType[0].type).to.eq(groupType)
   })
 })
